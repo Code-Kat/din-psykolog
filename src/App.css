@@ -1,0 +1,13 @@
+.flaticon {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+}
+
+.button {
+  height: 40px;
+}
+
+.arrowRight {
+  transform: rotate(180deg);
+}
