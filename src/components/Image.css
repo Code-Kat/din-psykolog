@@ -1,0 +1,10 @@
+.image {
+  padding: 20px;
+}
+
+.image__img {
+  height: 300px;
+  width: fit-content;
+  object-fit: contain;
+  max-width: 95%;
+}

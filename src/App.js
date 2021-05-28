@@ -1,5 +1,5 @@
 import "./App.css";
-import react, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "./components/Image";
 import arrowIcon from "./assets/previous.png";
 
@@ -17,6 +17,11 @@ function App() {
       .then((response) => response.json())
       .then((data) => setImages(data.results));
   }, [apiKey]);
+
+  const getRandomNumber = () => {
+    setIndex(Math.floor(Math.random() * images.length));
+  };
+
   return (
     <div className="app">
       {images !== undefined && (
@@ -28,12 +33,16 @@ function App() {
       )}
       <div className="buttons">
         <img
+          alt="leftArrow"
           src={arrowIcon}
           className="arrowLeft button"
           onClick={() => setIndex(index === 0 ? images.length - 1 : index - 1)}
         />
-        <button className="button centerButton">Random!</button>
+        <button className="button centerButton" onClick={getRandomNumber}>
+          Suprise me
+        </button>
         <img
+          alt="rightArrow"
           src={arrowIcon}
           className="arrowRight button"
           onClick={() => setIndex(index === images.length - 1 ? 0 : index + 1)}
@@ -43,6 +52,10 @@ function App() {
         Icons made by{" "}
         <a href="https://icon54.com/" title="Pixel perfect">
           Pixel perfect
+        </a>{" "}
+        and{" "}
+        <a href="https://www.freepik.com" title="Freepik">
+          Freepik
         </a>{" "}
         from{" "}
         <a href="https://www.flaticon.com/" title="Flaticon">
